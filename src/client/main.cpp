@@ -1,6 +1,8 @@
 #include <iostream>
 
+#include "core/include/client.h"
+
 int main() {
-    std::cout << "Client" << std::endl;
+    GrpcClient::RunClient(5001);
     return 0;
 }

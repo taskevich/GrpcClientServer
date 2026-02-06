@@ -1,3 +1,5 @@
 add_subdirectory(proto)
-add_subdirectory(server)
+add_subdirectory(server/core)
+add_subdirectory(server) 
+add_subdirectory(client/core)
 add_subdirectory(client)
