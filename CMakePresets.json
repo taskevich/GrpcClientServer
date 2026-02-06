@@ -26,7 +26,8 @@
             },
             "cacheVariables": {
               "CMAKE_BUILD_TYPE": "Debug",
-              "VCPKG_TARGET_TRIPLET": "x64-windows-static"
+              "VCPKG_TARGET_TRIPLET": "x64-windows-static",
+              "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_TOOLCHAIN_PATH}"
             }
         },
         {
@@ -35,7 +36,8 @@
             "inherits": "x64-debug",
             "cacheVariables": {
               "CMAKE_BUILD_TYPE": "Release",
-              "VCPKG_TARGET_TRIPLET": "x64-windows-static"
+              "VCPKG_TARGET_TRIPLET": "x64-windows-static",
+              "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_TOOLCHAIN_PATH}"
             }
         },
         {
@@ -48,7 +50,8 @@
             },
             "cacheVariables": {
               "CMAKE_BUILD_TYPE": "Debug",
-              "VCPKG_TARGET_TRIPLET": "x86-windows-static"
+              "VCPKG_TARGET_TRIPLET": "x86-windows-static",
+              "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_TOOLCHAIN_PATH}"
             }
         },
         {
@@ -57,7 +60,8 @@
             "inherits": "x86-debug",
             "cacheVariables": {
               "CMAKE_BUILD_TYPE": "Release",
-              "VCPKG_TARGET_TRIPLET": "x86-windows-static"
+              "VCPKG_TARGET_TRIPLET": "x86-windows-static",
+              "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_TOOLCHAIN_PATH}"
             }
         },
         {
