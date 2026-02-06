@@ -2,3 +2,4 @@ minio
 out
 .vs
 cmake-build-debug
+.idea
