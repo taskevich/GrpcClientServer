@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package v1;
+
+service V1Service {
+  rpc HandleRequest(Request) returns (Response);
+}
+
+message Information {
+  int32 TypeID = 1;
+  string Message = 2;
+}
+
+message Request {
+  string UUID = 1;
+  string DeviceUUID = 2;
+  int32 StatusId = 3;
+  map<string, Information> Information = 4;
+}
+
+message Response {
+  int32 TypeId = 1;
+  string message = 2;
+}
