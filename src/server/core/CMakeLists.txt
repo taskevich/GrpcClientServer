@@ -12,10 +12,3 @@ target_include_directories(Core
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/impl
 )
-
-target_link_libraries(Core
-    PUBLIC
-        protobuf::libprotobuf
-        gRPC::grpc
-        gRPC::grpc++
-)
