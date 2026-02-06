@@ -1,31 +1,26 @@
-find_package(Protobuf REQUIRED)
-find_package(gRPC REQUIRED)
+find_package(Protobuf CONFIG REQUIRED)
+find_package(gRPC CONFIG REQUIRED)
 
 set(PROTO_FILES v1.proto)
 
-add_library(myproto STATIC ${PROTO_FILES})
+protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${PROTO_FILES})
+grpc_generate_cpp(GRPC_SRCS GRPC_HDRS ${PROTO_FILES})
 
-target_link_libraries(
-        myproto
+add_library(myproto STATIC
+        ${PROTO_SRCS}
+        ${PROTO_HDRS}
+        ${GRPC_SRCS}
+        ${GRPC_HDRS}
+)
+
+target_link_libraries(myproto
         PUBLIC
         protobuf::libprotobuf
         gRPC::grpc
         gRPC::grpc++
 )
 
-target_include_directories(myproto PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
-
-get_target_property(
-        grpc_cpp_plugin_location
-        gRPC::grpc_cpp_plugin LOCATION
-)
-protobuf_generate(
-        TARGET
-        myproto LANGUAGE cpp
-)
-protobuf_generate(
-        TARGET
-        myproto LANGUAGE
-        rpc GENERATE_EXTENSIONS
-        .grpc.pb.h .grpc.pb.cc PLUGIN "protoc-gen-grpc=${grpc_cpp_plugin_location}"
+target_include_directories(myproto
+        PUBLIC
+        ${CMAKE_CURRENT_BINARY_DIR}
 )
